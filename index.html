@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
@@ -211,10 +211,10 @@
   <div class="page-wrapper">
     <header class="page-header">
       <h1>Cadastre-se e faça o download dos dois primeiros capítulos</h1>
-      <p>Vagas limitadas para garantir uma experiência de qualidade e interação direta.</p>
+
     </header>
     <div class="card">
-      <h2>Inscreva-se agora</h2>
+      <h2>Inscreva-se</h2>
       <form id="inscricaoForm" novalidate>
         <div class="form-group">
           <label for="nomeCompleto">Nome Completo <span class="required">*</span></label>
@@ -249,7 +249,7 @@
           <span class="error-msg" id="segmento-error">Por favor, informe seu segmento de mercado.</span>
         </div>
         <div class="feedback-box" id="feedbackBox"></div>
-        <button type="submit" class="btn-submit" id="submitBtn">Garantir minha vaga →</button>
+        <button type="submit" class="btn-submit" id="submitBtn">Inscreva-se</button>
       </form>
     </div>
   </div>
@@ -313,13 +313,13 @@
           feedbackBox.classList.add('success');
           feedbackBox.style.display = 'block';
           this.reset();
-          btn.innerHTML = 'Garantir minha vaga →';
+          btn.innerHTML = 'Inscreva-se';
         } else { throw new Error('Erro: ' + response.status); }
       } catch (err) {
         feedbackBox.textContent = '❌ Ocorreu um erro ao enviar. Por favor, tente novamente.';
         feedbackBox.classList.add('error-global');
         feedbackBox.style.display = 'block';
-        btn.innerHTML = 'Garantir minha vaga →';
+        btn.innerHTML = 'Inscreva-se';
       } finally { btn.disabled = false; }
     });
   </script>
