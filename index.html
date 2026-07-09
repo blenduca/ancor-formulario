@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Garanta sua vaga agora</title>
+  <title>Cadastre-se e faça o download dos dois primeiros capítulos.</title>
   <meta name="description"
     content="Vagas limitadas para garantir uma experiência de qualidade e interação direta. Inscreva-se agora." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -309,7 +309,7 @@
       try {
         const response = await fetch(WEBHOOK_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
         if (response.ok) {
-          feedbackBox.textContent = '✅ Inscrição realizada com sucesso! Em breve entraremos em contato.';
+          feedbackBox.textContent = '✅ Aplicação confirmada!';
           feedbackBox.classList.add('success');
           feedbackBox.style.display = 'block';
           this.reset();
