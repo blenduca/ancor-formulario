@@ -309,11 +309,18 @@
       try {
         const response = await fetch(WEBHOOK_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
         if (response.ok) {
-          feedbackBox.textContent = '✅ Aplicação confirmada!';
+          feedbackBox.textContent = '✅ Aplicação confirmada! O download do livro iniciará em instantes...';
           feedbackBox.classList.add('success');
           feedbackBox.style.display = 'block';
           this.reset();
           btn.innerHTML = 'Inscreva-se';
+          // Dispara o download automático do PDF
+          const link = document.createElement('a');
+          link.href = 'Livro _A Primeira Segunda Feira Amostra.pdf';
+          link.download = 'Livro _A Primeira Segunda Feira Amostra.pdf';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
         } else { throw new Error('Erro: ' + response.status); }
       } catch (err) {
         feedbackBox.textContent = '❌ Ocorreu um erro ao enviar. Por favor, tente novamente.';
