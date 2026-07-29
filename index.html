@@ -273,6 +273,17 @@
   </div>
   <script>
     const WEBHOOK_URL = 'https://automacao.bagents.cloud/webhook/0354f6a7-b259-474c-a075-22742a9f1c23';
+
+    // Captura UTMs da URL no momento do carregamento
+    const _urlParams = new URLSearchParams(window.location.search);
+    const _utms = {
+      utm_source:   _urlParams.get('utm_source')   || '',
+      utm_medium:   _urlParams.get('utm_medium')   || '',
+      utm_campaign: _urlParams.get('utm_campaign') || '',
+      utm_term:     _urlParams.get('utm_term')     || '',
+      utm_content:  _urlParams.get('utm_content')  || '',
+    };
+
     const telefoneInput = document.getElementById('telefone');
     telefoneInput.addEventListener('input', function () {
       let v = this.value.replace(/\D/g, '').substring(0, 11);
@@ -323,6 +334,7 @@
         ocupacao: document.getElementById('ocupacao').value.trim(),
         segmento: document.getElementById('segmento').value.trim(),
         timestamp: new Date().toISOString(),
+        ..._utms,
       };
       try {
         const response = await fetch(WEBHOOK_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
